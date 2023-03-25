@@ -19,7 +19,7 @@ model Plant {
 
 model Watering {
   id        String   @id @default(uuid())
-  plant     Plant    @relation(fields: [plantId], references: [id])
+  plant     Plant    @relation(fields: [plantId], references: [id], onDelete: Cascade)
   plantId   String
   timestamp DateTime @default(now())
 }

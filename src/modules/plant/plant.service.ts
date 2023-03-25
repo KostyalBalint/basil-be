@@ -25,7 +25,6 @@ export class PlantService {
       },
     });
 
-    console.log(newPlant);
     return {
       typename: 'Plant',
       ...newPlant,
@@ -66,6 +65,18 @@ export class PlantService {
     return this.prismaService.plant.delete({
       where: {
         id,
+      },
+    });
+  }
+
+  editPlant(id: string, plant: PlantInput) {
+    return this.prismaService.plant.update({
+      where: {
+        id,
+      },
+      data: {
+        name: plant.name,
+        waterFrequency: plant.waterFrequency,
       },
     });
   }

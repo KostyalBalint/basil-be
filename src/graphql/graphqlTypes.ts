@@ -14,14 +14,15 @@ export interface PlantInput {
 }
 
 export interface IQuery {
-    plants(): Nullable<Nullable<Plant>[]> | Promise<Nullable<Nullable<Plant>[]>>;
+    plants(): Plant[] | Promise<Plant[]>;
     plant(id?: Nullable<string>): Nullable<Plant> | Promise<Nullable<Plant>>;
 }
 
 export interface IMutation {
-    addPlant(plant?: Nullable<PlantInput>): Nullable<Plant> | Promise<Nullable<Plant>>;
+    addPlant(plant?: Nullable<PlantInput>): Plant | Promise<Plant>;
     waterPlant(id?: Nullable<string>): Nullable<boolean> | Promise<Nullable<boolean>>;
-    removePlant(id?: Nullable<string>): Nullable<Plant> | Promise<Nullable<Plant>>;
+    removePlant(id?: Nullable<string>): Plant | Promise<Plant>;
+    editPlant(id?: Nullable<string>, plant?: Nullable<PlantInput>): Plant | Promise<Plant>;
 }
 
 export interface Plant {

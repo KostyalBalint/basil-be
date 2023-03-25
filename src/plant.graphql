@@ -1,12 +1,13 @@
 type Query{
-    plants: [Plant]
+    plants: [Plant!]!
     plant(id: ID): Plant
 }
 
 type Mutation{
-    addPlant(plant: PlantInput): Plant
+    addPlant(plant: PlantInput): Plant!
     waterPlant(id: ID): Boolean
-    removePlant(id: ID): Plant
+    removePlant(id: ID): Plant!
+    editPlant(id: ID, plant: PlantInput): Plant!
 }
 
 input PlantInput {
